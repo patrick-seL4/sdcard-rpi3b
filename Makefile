@@ -11,3 +11,4 @@ build: clean
 	cp config.txt build/
 	cp start.elf build/
 	cp u-boot.bin build/
+	cp fixup.dat build/
