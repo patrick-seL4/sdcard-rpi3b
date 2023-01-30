@@ -1,4 +1,0 @@
-setenv autoload no
-dhcp
-tftp 0x10000000 rpi3/sel4-image
-go 0x10000000
