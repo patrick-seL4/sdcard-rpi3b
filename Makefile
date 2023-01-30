@@ -33,7 +33,12 @@ build-common: clean directories
 build-tftpboot-tsdesk: build-common
 	$(MAKE) build-bootscript \
 		BOOTSCRIPT="tftpboot-tsdesk.script"
-	# cp -v ubootenv/tftpboot-tsdesk.env build/uboot.env
+
+# Boots from TFTP server on Machine Queue.
+.PHONY: build-tftpboot-tsmq
+build-tftpboot-tsmq: build-common
+	$(MAKE) build-bootscript \
+		BOOTSCRIPT="tftpboot-tsmq.script"
 
 # ===============================
 # Flashing the SD card
@@ -69,7 +74,7 @@ flash-tftpboot-tsdesk: \
 # E.g. $ make flash-tftpboot-tsmq SDCARD_PATH="/Volumes/SDCARD/"
 .PHONY: flash-tftpboot-tsmq
 flash-tftpboot-tsmq: \
-	build-common \
+	build-tftpboot-tsmq \
 	flash-common
 	@echo "===> Finished flashing SD card at $(SDCARD_PATH) for TFTP boot at TS on Machine Queue."
 	$(MAKE) ls-sdcard
