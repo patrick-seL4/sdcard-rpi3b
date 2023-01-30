@@ -37,8 +37,9 @@ build-tftpboot-tsdesk: build-common
 # Boots from TFTP server on Machine Queue.
 .PHONY: build-tftpboot-tsmq
 build-tftpboot-tsmq: build-common
-	$(MAKE) build-bootscript \
-		BOOTSCRIPT="tftpboot-tsmq.script"
+	# Copy UBoot environment variables into build directory.
+	# These were obtained straight from the SD card of the MQ Raspberry Pi.
+	cp -v ubootenv/tftpboot-tsmq.env build/uboot.env
 
 # ===============================
 # Flashing the SD card
