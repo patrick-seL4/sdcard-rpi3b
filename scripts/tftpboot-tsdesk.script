@@ -1,0 +1,4 @@
+setenv ipaddr 172.16.1.210
+setenv serverip 172.16.0.2
+tftp 0x10000000 rpi3/loader.img
+go 0x10000000
