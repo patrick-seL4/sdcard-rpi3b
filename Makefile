@@ -56,10 +56,21 @@ else
 	cp -vR build/* $(SDCARD_PATH)
 endif
 
+# Flashing for TS personal desk.
 # E.g. $ make flash-tftpboot-tsdesk SDCARD_PATH="/Volumes/SDCARD/"
 .PHONY: flash-tftpboot-tsdesk
 flash-tftpboot-tsdesk: \
 	build-tftpboot-tsdesk \
 	flash-common
-	@echo "===> Finished flashing SD card at $(SDCARD_PATH) for TFTP boot at TS."
+	@echo "===> Finished flashing SD card at $(SDCARD_PATH) for TFTP boot at TS on my own Desk."
 	$(MAKE) ls-sdcard
+
+# Flashing for TS Machine Queue.
+# E.g. $ make flash-tftpboot-tsmq SDCARD_PATH="/Volumes/SDCARD/"
+.PHONY: flash-tftpboot-tsmq
+flash-tftpboot-tsmq: \
+	build-common \
+	flash-common
+	@echo "===> Finished flashing SD card at $(SDCARD_PATH) for TFTP boot at TS on Machine Queue."
+	$(MAKE) ls-sdcard
+
