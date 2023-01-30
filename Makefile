@@ -34,6 +34,7 @@ build-tftpboot-tsdesk: build-common
 	$(MAKE) build-bootscript \
 		BOOTSCRIPT="tftpboot-tsdesk.script"
 	# cp -v ubootenv/tftpboot-tsdesk.env build/uboot.env
+
 # ===============================
 # Flashing the SD card
 # ===============================
